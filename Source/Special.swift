@@ -39,39 +39,38 @@ open class MmsPath: PathSegment {
         }
     }
     func post(requestBody: Data, attachments: [Attachment], callback: @escaping (_ t: GetMessageInfoResponse?, _ error: HTTPError?) -> Void) {
-        var headers: [String: String] = [:]
+        var headers: HTTPHeaders = [:]
         if rc.token != nil {
             headers["Authorization"] = "Bearer \(rc.token!.access_token!)"
         }
-        Alamofire.upload(
-            multipartFormData: { multipartFormData in
-                multipartFormData.append(requestBody, withName: "json", fileName: "request.json", mimeType: "application/json")
-                for attachment in attachments {
-                    multipartFormData.append(attachment.data, withName: "attachment", fileName: attachment.fileName, mimeType: attachment.contentType)
-                }
-        },
-            to: self.url(withId: false),
-            headers: headers,
-            encodingCompletion: { encodingResult in
-                switch encodingResult {
-                case .success(let upload, _, _):
-                    upload.responseString { response in
-                        if 200 == response.response!.statusCode {
-                            callback(GetMessageInfoResponse(JSONString: response.result.value!), nil)
-                        } else {
-                            callback(nil, HTTPError(statusCode: response.response!.statusCode, message: response.result.value!))
-                        }
-                    }
-                case .failure(_):
-                    callback(nil, HTTPError(statusCode: -1, message: "error encoding multipartFormData"))
-                }
-        }
+        let urlRequest = try! URLRequest(
+            url: self.url(withId: false),
+            method: .post,
+            headers: headers
         )
+
+        Alamofire.Session.default.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(requestBody, withName: "json", fileName: "request.json", mimeType: "application/json")
+            for attachment in attachments {
+                multipartFormData.append(attachment.data, withName: "attachment", fileName: attachment.fileName, mimeType: attachment.contentType)
+            }
+        }, with: urlRequest).responseString { response in
+            let statusCode = response.response!.statusCode
+
+            switch response.result {
+            case let .success(value):
+                callback(GetMessageInfoResponse(JSONString: value), nil)
+            case let .failure(error):
+                callback(nil, HTTPError(statusCode: statusCode, message: error.localizedDescription))
+            }
+        }
     }
+
     open func post(parameters: Parameters, attachments: [Attachment], callback: @escaping (_ t: GetMessageInfoResponse?, _ error: HTTPError?) -> Void) {
         let requestBody = try! JSONSerialization.data(withJSONObject: parameters)
         post(requestBody: requestBody, attachments: attachments, callback: callback)
     }
+
     open func post(parameters: CreateSMSMessage, attachments: [Attachment], callback: @escaping (_ t: GetMessageInfoResponse?, _ error: HTTPError?) -> Void) {
         let parametersBody = parameters.toParameters()["json-string"] as! String
         let requestBody = parametersBody.data(using: String.Encoding.utf8)!
@@ -92,37 +91,37 @@ public struct Attachment {
         self.data = data
     }
 }
+
+//public struct URLReu URLRequestConvertible
+
 extension FaxPath {
     func post(requestBody: Data, attachments: [Attachment], callback: @escaping (_ t: FaxResponse?, _ error: HTTPError?) -> Void) {
-        var headers: [String: String] = [:]
+        var headers: HTTPHeaders = [:]
         if rc.token != nil {
             headers["Authorization"] = "Bearer \(rc.token!.access_token!)"
         }
-        Alamofire.upload(
-            multipartFormData: { multipartFormData in
-                multipartFormData.append(requestBody, withName: "json", fileName: "request.json", mimeType: "application/json")
-                for attachment in attachments {
-                    multipartFormData.append(attachment.data, withName: "attachment", fileName: attachment.fileName, mimeType: attachment.contentType)
-                }
-            },
-            to: self.url(withId: false),
-            headers: headers,
-            encodingCompletion: { encodingResult in
-                switch encodingResult {
-                case .success(let upload, _, _):
-                    upload.responseString { response in
-                        if 200 == response.response!.statusCode {
-                            callback(FaxResponse(JSONString: response.result.value!), nil)
-                        } else {
-                            callback(nil, HTTPError(statusCode: response.response!.statusCode, message: response.result.value!))
-                        }
-                    }
-                case .failure(_):
-                    callback(nil, HTTPError(statusCode: -1, message: "error encoding multipartFormData"))
-                }
-            }
+        let urlRequest = try! URLRequest(
+            url: self.url(withId: false),
+            method: .post,
+            headers: headers
         )
+        Alamofire.Session.default.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(requestBody, withName: "json", fileName: "request.json", mimeType: "application/json")
+            for attachment in attachments {
+                multipartFormData.append(attachment.data, withName: "attachment", fileName: attachment.fileName, mimeType: attachment.contentType)
+            }
+        }, with: urlRequest).responseString { response in
+            let statusCode = response.response!.statusCode
+
+            switch response.result {
+            case let .success(value):
+                callback(FaxResponse(JSONString: value), nil)
+            case let .failure(error):
+                callback(nil, HTTPError(statusCode: statusCode, message: error.localizedDescription))
+            }
+        }
     }
+
     open func post(parameters: Parameters, attachments: [Attachment], callback: @escaping (_ t: FaxResponse?, _ error: HTTPError?) -> Void) {
         let requestBody = try! JSONSerialization.data(withJSONObject: parameters)
         post(requestBody: requestBody, attachments: attachments, callback: callback)
@@ -133,32 +132,30 @@ extension FaxPath {
 // upload profile image
 extension ProfileImagePath {
     open func put(imageData: Data, imageFileName: String, callback: @escaping (_ error: HTTPError?) -> Void) {
-        var headers: [String: String] = [:]
+        var headers: HTTPHeaders = [:]
         if rc.token != nil {
             headers["Authorization"] = "Bearer \(rc.token!.access_token!)"
         }
         let ext = URL(fileURLWithPath: imageFileName).pathExtension
-        Alamofire.upload(
-            multipartFormData: { multipartFormData in
-                multipartFormData.append(imageData, withName: "image", fileName: imageFileName, mimeType: "image/\(ext)")
-            },
-            to: self.url(withId: false),
-            headers: headers,
-            encodingCompletion: { encodingResult in
-                switch encodingResult {
-                case .success(let upload, _, _):
-                    upload.responseString { response in
-                        if 204 == response.response!.statusCode {
-                            callback(nil)
-                        } else {
-                            callback(HTTPError(statusCode: response.response!.statusCode, message: response.result.value!))
-                        }
-                    }
-                case .failure(_):
-                    callback(HTTPError(statusCode: -1, message: "error encoding multipartFormData"))
-                }
-            }
+
+        let urlRequest = try! URLRequest(
+            url: self.url(withId: false),
+            method: .put,
+            headers: headers
         )
+
+        Alamofire.Session.default.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(imageData, withName: "image", fileName: imageFileName, mimeType: "image/\(ext)")
+        }, with: urlRequest).responseData { response in
+            let statusCode = response.response!.statusCode
+
+            switch response.result {
+            case .success:
+                callback(nil)
+            case let .failure(error):
+                callback(HTTPError(statusCode: statusCode, message: error.localizedDescription))
+            }
+        }
     }
 
     open func post(imageData: Data, imageFileName: String, callback: @escaping (_ error: HTTPError?) -> Void) {

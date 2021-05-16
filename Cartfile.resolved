@@ -1,4 +1,4 @@
-github "Alamofire/Alamofire" "4.7.3"
-github "Hearst-DD/ObjectMapper" "3.3.0"
-github "krzyzanowskim/CryptoSwift" "0.11.0"
-github "pubnub/objective-c" "v4.8.1"
+github "Alamofire/Alamofire" "5.4.3"
+github "Hearst-DD/ObjectMapper" "4.2.0"
+github "krzyzanowskim/CryptoSwift" "1.4.0"
+github "pubnub/objective-c" "v4.16.1"

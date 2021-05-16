@@ -90,7 +90,14 @@ extension RestClient {
         let userAgentHeader = "RC-SWIFT-SDK"
         headers["User-Agent"] = userAgentHeader
         headers["RC-User-Agent"] = userAgentHeader
-        let request = Alamofire.request(urlString, method: method, parameters: parameters, encoding: encoding, headers: headers)
+
+        let request = Alamofire.Session.default.request(
+            urlString,
+            method: method,
+            parameters: parameters,
+            encoding: encoding,
+            headers: headers
+        )
         return request
     }
 
@@ -99,10 +106,12 @@ extension RestClient {
         let request = newRequest(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers)
         request.responseData { response in
             let statusCode = response.response!.statusCode
-            if statusCode >= 200 && statusCode < 300 {
-                callback(response.result.value!, nil)
-            } else {
-                callback(nil, HTTPError(statusCode: statusCode, message: ""))
+
+            switch response.result {
+            case let .success(value):
+                callback(value, nil)
+            case let .failure(error):
+                callback(nil, HTTPError(statusCode: statusCode, message: error.localizedDescription))
             }
         }
     }
@@ -112,10 +121,12 @@ extension RestClient {
         let request = newRequest(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers)
         request.responseString { response in
             let statusCode = response.response!.statusCode
-            if statusCode >= 200 && statusCode < 300 {
-                callback(response.result.value!, nil)
-            } else {
-                callback(nil, HTTPError(statusCode: statusCode, message: response.result.value!))
+
+            switch response.result {
+            case let .success(value):
+                callback(value, nil)
+            case let .failure(error):
+                callback(nil, HTTPError(statusCode: statusCode, message: error.localizedDescription))
             }
         }
     }

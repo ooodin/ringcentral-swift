@@ -3,12 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		872DB6D11DC3553C00EFA4E2 /* PubNub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872DB6D01DC3553C00EFA4E2 /* PubNub.framework */; };
-		872DB6D51DC3555D00EFA4E2 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872DB6D41DC3555D00EFA4E2 /* CryptoSwift.framework */; };
 		873B6B181DB71070001D1825 /* CryptoSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 873B6B131DB71044001D1825 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		875500DD1DB494E10089B0EA /* PubNub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875500DC1DB494E10089B0EA /* PubNub.framework */; };
 		875500DE1DB494F00089B0EA /* PubNub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875500DC1DB494E10089B0EA /* PubNub.framework */; };
@@ -2100,8 +2098,6 @@
 		879C3823211C3DF500A333FB /* DictionaryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879ADF0F1D98E754008E7735 /* DictionaryTest.swift */; };
 		879C3824211C3DF500A333FB /* RestClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879ADF101D98E754008E7735 /* RestClientTest.swift */; };
 		879C3825211C3DF500A333FB /* CallLogTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BF19A41DCAC15D00A2DF29 /* CallLogTest.swift */; };
-		87D30AB91D9E5616009CC0E7 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D30AB71D9E5616009CC0E7 /* ObjectMapper.framework */; };
-		87D30ABA1D9E5616009CC0E7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D30AB81D9E5616009CC0E7 /* Alamofire.framework */; };
 		87F3F56F1DD1D3D8005850AE /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F3F56A1DD1D3D8005850AE /* ObjectMapper.framework */; };
 		87F3F5701DD1D3D8005850AE /* PubNub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F3F56B1DD1D3D8005850AE /* PubNub.framework */; };
 		87F3F5711DD1D3D8005850AE /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F3F56C1DD1D3D8005850AE /* CryptoSwift.framework */; };
@@ -2110,6 +2106,14 @@
 		87F3F57A1DD1D66B005850AE /* PubNub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F3F5751DD1D66B005850AE /* PubNub.framework */; };
 		87F3F57B1DD1D66B005850AE /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F3F5761DD1D66B005850AE /* CryptoSwift.framework */; };
 		87F3F57D1DD1D66B005850AE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F3F5781DD1D66B005850AE /* Alamofire.framework */; };
+		EC17669D26516B9B00918C9B /* CryptoSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC17669926516B9B00918C9B /* CryptoSwift.xcframework */; };
+		EC17669E26516B9B00918C9B /* CryptoSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC17669926516B9B00918C9B /* CryptoSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC17669F26516B9B00918C9B /* PubNub.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC17669A26516B9B00918C9B /* PubNub.xcframework */; };
+		EC1766A026516B9B00918C9B /* PubNub.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC17669A26516B9B00918C9B /* PubNub.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC1766A126516B9B00918C9B /* ObjectMapper.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC17669B26516B9B00918C9B /* ObjectMapper.xcframework */; };
+		EC1766A226516B9B00918C9B /* ObjectMapper.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC17669B26516B9B00918C9B /* ObjectMapper.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC1766A326516B9B00918C9B /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC17669C26516B9B00918C9B /* Alamofire.xcframework */; };
+		EC1766A426516B9B00918C9B /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC17669C26516B9B00918C9B /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2134,6 +2138,20 @@
 				879ADF1F1D98FCD1008E7735 /* Alamofire.framework in CopyFiles */,
 				879ADF1D1D98F53A008E7735 /* ObjectMapper.framework in CopyFiles */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC1766A526516B9B00918C9B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EC1766A426516B9B00918C9B /* Alamofire.xcframework in Embed Frameworks */,
+				EC17669E26516B9B00918C9B /* CryptoSwift.xcframework in Embed Frameworks */,
+				EC1766A026516B9B00918C9B /* PubNub.xcframework in Embed Frameworks */,
+				EC1766A226516B9B00918C9B /* ObjectMapper.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -2707,6 +2725,14 @@
 		87F5C7261DE2EBDE00A0D681 /* Dollar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dollar.framework; path = Carthage/Build/Mac/Dollar.framework; sourceTree = "<group>"; };
 		87F5C7291DE2F85900A0D681 /* AuthorizationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthorizationTest.swift; path = Tests/AuthorizationTest.swift; sourceTree = "<group>"; };
 		87F5C72C1DE30ECF00A0D681 /* TokenTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenTest.swift; path = Tests/TokenTest.swift; sourceTree = "<group>"; };
+		EC17668C265160FE00918C9B /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = ../../Build/Alamofire.xcframework; sourceTree = "<group>"; };
+		EC1766902651611800918C9B /* ObjectMapper.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ObjectMapper.xcframework; path = ../../Build/ObjectMapper.xcframework; sourceTree = "<group>"; };
+		EC1766932651613500918C9B /* CryptoSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CryptoSwift.xcframework; path = ../../Build/CryptoSwift.xcframework; sourceTree = "<group>"; };
+		EC1766942651613500918C9B /* PubNub.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PubNub.xcframework; path = ../../Build/PubNub.xcframework; sourceTree = "<group>"; };
+		EC17669926516B9B00918C9B /* CryptoSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CryptoSwift.xcframework; path = Carthage/Build/CryptoSwift.xcframework; sourceTree = "<group>"; };
+		EC17669A26516B9B00918C9B /* PubNub.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PubNub.xcframework; path = Carthage/Build/PubNub.xcframework; sourceTree = "<group>"; };
+		EC17669B26516B9B00918C9B /* ObjectMapper.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ObjectMapper.xcframework; path = Carthage/Build/ObjectMapper.xcframework; sourceTree = "<group>"; };
+		EC17669C26516B9B00918C9B /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2725,10 +2751,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87D30AB91D9E5616009CC0E7 /* ObjectMapper.framework in Frameworks */,
-				87D30ABA1D9E5616009CC0E7 /* Alamofire.framework in Frameworks */,
-				872DB6D11DC3553C00EFA4E2 /* PubNub.framework in Frameworks */,
-				872DB6D51DC3555D00EFA4E2 /* CryptoSwift.framework in Frameworks */,
+				EC1766A326516B9B00918C9B /* Alamofire.xcframework in Frameworks */,
+				EC17669D26516B9B00918C9B /* CryptoSwift.xcframework in Frameworks */,
+				EC17669F26516B9B00918C9B /* PubNub.xcframework in Frameworks */,
+				EC1766A126516B9B00918C9B /* ObjectMapper.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3393,6 +3419,14 @@
 		879ADEFA1D98C7D5008E7735 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC17669C26516B9B00918C9B /* Alamofire.xcframework */,
+				EC1766932651613500918C9B /* CryptoSwift.xcframework */,
+				EC17669B26516B9B00918C9B /* ObjectMapper.xcframework */,
+				EC1766942651613500918C9B /* PubNub.xcframework */,
+				EC1766902651611800918C9B /* ObjectMapper.xcframework */,
+				EC17668C265160FE00918C9B /* Alamofire.xcframework */,
+				EC17669926516B9B00918C9B /* CryptoSwift.xcframework */,
+				EC17669A26516B9B00918C9B /* PubNub.xcframework */,
 				87F5C7261DE2EBDE00A0D681 /* Dollar.framework */,
 				87F3F5741DD1D66B005850AE /* ObjectMapper.framework */,
 				87F3F5751DD1D66B005850AE /* PubNub.framework */,
@@ -3511,6 +3545,7 @@
 				879ADEC71D98C41C008E7735 /* Frameworks */,
 				879ADEC81D98C41C008E7735 /* Headers */,
 				879ADEC91D98C41C008E7735 /* Resources */,
+				EC1766A526516B9B00918C9B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3617,6 +3652,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 879ADEB11D98C3C9008E7735;
@@ -5919,7 +5955,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = RingCentral_macOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -5983,14 +6023,19 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = RingCentral_macOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ringcentral.RingCentral;
 				PRODUCT_NAME = RingCentral;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -6050,8 +6095,12 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = RingCentral_iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ringcentral.RingCentral-iOS";
@@ -6114,14 +6163,19 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = RingCentral_iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ringcentral.RingCentral-iOS";
 				PRODUCT_NAME = RingCentral;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -6183,7 +6237,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = RingCentral_watchOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ringcentral.RingCentral-watchOS";
@@ -6247,13 +6305,18 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = RingCentral_watchOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ringcentral.RingCentral-watchOS";
 				PRODUCT_NAME = RingCentral;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -6315,7 +6378,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = RingCentral_tvOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ringcentral.RingCentral-tvOS";
@@ -6378,13 +6445,18 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = RingCentral_tvOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ringcentral.RingCentral-tvOS";
 				PRODUCT_NAME = RingCentral;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -6442,7 +6514,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = RingCentral_macOS_Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ringcentral.RingCentral-macOS-Tests";
@@ -6496,12 +6572,17 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = RingCentral_macOS_Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ringcentral.RingCentral-macOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};

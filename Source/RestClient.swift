@@ -54,7 +54,7 @@ open class RestClient {
             "password": password,
             "grant_type": "password"
         ]
-        let headers: [String: String] = ["Authorization": basicAuthToken()]
+        let headers: HTTPHeaders = ["Authorization": basicAuthToken()]
         postString("/restapi/oauth/token", parameters: parameters, encoding: URLEncoding.default, headers: headers) { string, error in
             if error == nil {
                 self.token = TokenInfo(JSONString: string!)
@@ -72,7 +72,7 @@ open class RestClient {
                 "refresh_token": token.refresh_token!,
                 "endpoint_id": token.endpoint_id!
             ]
-            let headers: [String: String] = ["Authorization": basicAuthToken()]
+            let headers: HTTPHeaders = ["Authorization": basicAuthToken()]
             postString("/restapi/oauth/token", parameters: parameters, encoding: URLEncoding.default, headers: headers) { string, error in
                 if error == nil {
                     self.token = TokenInfo(JSONString: string!)
@@ -87,7 +87,7 @@ open class RestClient {
     open func revoke(callback: ((Bool) -> Void)? = nil) {
         if let token = token {
             let parameters: [String: String] = ["token": token.access_token!]
-            let headers: [String: String] = ["Authorization": basicAuthToken()]
+            let headers: HTTPHeaders = ["Authorization": basicAuthToken()]
             postString("/restapi/oauth/revoke", parameters: parameters, encoding: URLEncoding.default, headers: headers) { string, error in
                 callback?(error == nil)
             }
@@ -114,7 +114,7 @@ open class RestClient {
             "redirect_uri": redirectUri,
             "code": authCode,
         ]
-        let headers: [String: String] = ["Authorization": basicAuthToken()]
+        let headers: HTTPHeaders = ["Authorization": basicAuthToken()]
         postString("/restapi/oauth/token", parameters: parameters, encoding: URLEncoding.default, headers: headers) { string, error in
             if error == nil {
                 self.token = TokenInfo(JSONString: string!)
